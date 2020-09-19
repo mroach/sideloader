@@ -1,0 +1,53 @@
+﻿<Window x:Class="Sideloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sideloader"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="535.597" Width="963.512">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" Name="Nav"/>
+            <ColumnDefinition Width="2*" Name="Main"/>
+            <ColumnDefinition Width="2*" Name="Preview"/> 
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Column="1" Grid.Row="1" Name="addinsGrid" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="addinsGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Title}" Header="Name"/>
+                <DataGridTextColumn Binding="{Binding Author}" Header="Author" />
+                <DataGridTextColumn Binding="{Binding UpdatedAt, StringFormat=d}" Header="Last Updated"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Version}" Header="Version" />
+                <DataGridTextColumn Binding="{Binding Downloads}" Header="Downloads">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+        
+        <TextBlock Grid.Column="1" Grid.Row="0" Name="GridTitle" Text="Add-in Packages" FontSize="36" />
+        <TextBlock Grid.Column="2" Grid.Row="1" Name="InfoTitle" FontSize="24" VerticalAlignment="Top" TextWrapping="Wrap" Text="" Margin="10,0,0,0"/>
+        <WebBrowser Grid.Column="2" Grid.Row="1" Name="InfoBrowser" Margin="10,60,0,0" />
+        <ListView Grid.Column="0" Grid.Row="1" FontSize="20" BorderThickness="0" SelectionChanged="ListView_SelectionChanged">
+            <ListViewItem Tag="scenery" Content="Scenery" Margin="0 0 0 5" />
+            <ListViewItem Tag="liveries" Content="Liveries" Margin="0 0 0 5" />
+            <ListViewItem Tag="aircraft" Content="Aircraft" Margin="0 0 0 5" />
+        </ListView>
+
+        <StatusBar Grid.Row="2" Grid.ColumnSpan="3" Name="StatusBar">
+            <StatusBarItem Name="MainStatus" Content="Ready." />
+        </StatusBar>
+    </Grid>
+
+</Window>

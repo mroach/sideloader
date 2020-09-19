@@ -1,0 +1,15 @@
+﻿{
+  "dependencies": [],
+  "content_type": "AIRCRAFT",
+  "title": "A320 Neo - Lufthansa",
+  "manufacturer": "Airbus",
+  "creator": "Open Livery Studios",
+  "package_version": "2.0.1",
+  "minimum_game_version": "1.7.12",
+  "release_notes": {
+    "neutral": {
+      "LastUpdate": "06092020",
+      "OlderHistory": ""
+    }
+  }
+}
